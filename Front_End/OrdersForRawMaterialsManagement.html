@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders for Raw Materials Management</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d1b2a;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #007BFF;
+        }
+        .scrollable-table {
+            width: 80%;
+            max-width: 800px;
+            overflow-y: auto;
+            max-height: 400px;
+            border: 1px solid #34495e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #34495e;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        th {
+            background-color: #1abc9c;
+            color: #2c3e50;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        tr {
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        tr:hover {
+            background-color: #16a085;
+        }
+        tr.selected {
+            background-color: #2980b9;
+        }
+        .action-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .action-buttons button {
+            background-color: #007BFF;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            color: #ecf0f1;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .action-buttons button:hover {
+            background-color: #0056b3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            color: #0d1b2a;
+            z-index: 1;
+            padding-top: 200px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Orders for Raw Materials Management</h2>
+    <div class="scrollable-table">
+        <table id="ordersTable" class="display">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Supplier</th>
+                    <th>Total Cost</th>
+                    <th>Status</th>
+                    <th>Date of Status Change</th>
+                </tr>
+            </thead>
+            <tbody id="ordersList"></tbody>
+        </table>
+    </div>
+    <div class="action-buttons">
+        <button onclick="viewOrderDetails()">View Details</button>
+        <button onclick="newOrder()">New Order</button>
+    </div>
+
+    <!-- Modal for order details -->
+    <div id="orderDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Order Details</h2>
+            <p id="orderDetails"></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script src="ordersForRawMaterialsManagement.js"></script>
+</body>
+</html>

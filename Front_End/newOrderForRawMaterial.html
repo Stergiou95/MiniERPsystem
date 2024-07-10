@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Order for Raw Material</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d1b2a;
+            color: #e0e1dd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #1c2b3a;
+            color: #e0e1dd;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1b263b;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        th {
+            background-color: #1abc9c;
+            color: #2c3e50;
+        }
+        tr {
+            transition: background-color 0.3s;
+        }
+        tr:hover {
+            background-color: #16a085;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>New Order for Raw Material</h1>
+        <form id="newOrderForm">
+            <div class="form-group">
+                <label for="supplier">Supplier:</label>
+                <select id="supplier" name="supplier" required></select>
+            </div>
+            <div class="form-group">
+                <label for="rawMaterial">Raw Material:</label>
+                <select id="rawMaterial" name="rawMaterial" required></select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" required>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="addRawMaterial()">Add Raw Material</button>
+            </div>
+            <div class="form-group">
+                <table id="rawMaterialTable">
+                    <thead>
+                        <tr>
+                            <th>Raw Material</th>
+                            <th>Quantity</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rawMaterialList"></tbody>
+                </table>
+            </div>
+            <button type="button" onclick="submitNewOrder()">Create Order</button>
+        </form>
+    </div>
+    <script src="newOrderForRawMaterial.js"></script>
+</body>
+</html>
