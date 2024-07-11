@@ -14,7 +14,7 @@ public class OrdersForRawMaterialsDTO {
     private Long rmorderID;
     private Long supplierID;
     private String supplierName;
-    private List<RawMaterialsDetailsDTO> rawMaterialsDetails; // Προσθήκη αυτής της γραμμής
+    private List<RawMaterialsDetailsDTO> rawMaterialsDetails;
     private LocalDateTime dateOrderRmatStatusChanged;
     private double totalCost;
     private String currentStatus;
