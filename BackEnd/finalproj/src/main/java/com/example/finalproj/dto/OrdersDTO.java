@@ -18,7 +18,7 @@ public class OrdersDTO {
     private String partnerName;
 
     private Double totalCost;
-    private List<ProductDetailsDTO> cart; // Λίστα με προϊόντα και λεπτομέρειες τους
+    private List<ProductDetailsDTO> cart; /
     private String currentStatus;
     private LocalDateTime dateOrderSalesStatusChanged;
     private List<OutOrderStatusDTO> statusHistory;
